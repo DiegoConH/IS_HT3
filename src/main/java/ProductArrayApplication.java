@@ -21,39 +21,38 @@ public class ProductArrayApplication {
                         return new long[]{input[0]};
                     }
                 }else {
-                    List<Long> inputList=Arrays.stream(input).boxed().collect(Collectors.toList());
-                    List<Long> result=new ArrayList<>();
-                    List<Object> convertedList=new ArrayList<>();
+                    List<Long> entrada=Arrays.stream(input).boxed().collect(Collectors.toList());
+                    List<Long> resultado=new ArrayList<>();
+                    List<Object> convertorlista=new ArrayList<>();
 
-                    for(int count=0;count<inputList.size();count++){
+                    for(int count=0;count<entrada.size();count++){
                         if(count>0){
-                            convertedList.addAll(inputList.subList(0,count));
+                            convertorlista.addAll(entrada.subList(0,count));
                         }
-                        convertedList.addAll(Arrays.stream(input).boxed().collect(Collectors.toList()).subList(count+1,input.length));
+                        convertorlista.addAll(Arrays.stream(input).boxed().collect(Collectors.toList()).subList(count+1,input.length));
 
 
 
-                        if(count!=inputList.size()-1){
-                            convertedList.add("-");
+                        if(count!=entrada.size()-1){
+                            convertorlista.add("-");
                         }
-                        System.out.println(convertedList);
+                        System.out.println(convertorlista);
                     }
-
-                    for (Object aLista : convertedList) {
-                        if (aLista instanceof Long) {
-                            if (result.size() > 0) {
-                                Long temp = result.get(result.size() - 1);
-                                result.set(result.size() - 1, temp * (Long) aLista);
+                    for (Object Lista : convertorlista) {
+                        if (Lista instanceof Long) {
+                            if (resultado.size() > 0) {
+                                Long temp = resultado.get(resultado.size() - 1);
+                                resultado.set(resultado.size() - 1, temp * (Long) Lista);
                             } else {
-                                result.add((Long) aLista);
+                                resultado.add((Long) Lista);
                             }
                         } else {
-                            result.add(1L);
+                            resultado.add(1L);
                         }
                     }
 
-                    System.out.println(result);
-                    return result.stream().mapToLong(l -> l).toArray();
+                    System.out.println(resultado);
+                    return resultado.stream().mapToLong(l -> l).toArray();
                 }
             }else{
                 return new long[]{};
