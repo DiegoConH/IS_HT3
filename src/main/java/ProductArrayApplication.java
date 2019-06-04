@@ -8,16 +8,17 @@ import java.util.stream.Collectors;
 
 public class ProductArrayApplication {
     public static void main(String[] args){
-        calculateProductArrayBasic(new long[]{1,2,3,4,5,6,7,8}); //Test 1
-        calculateProductArrayBasic(new long[]{}); //Test 2
-        calculateProductArrayBasic(new long[]{2}); //Test 3
-        calculateProductArrayBasic(new long[]{3}); //Test 4
-        calculateProductArrayBasic(new long[]{4,5}); //Test 5
-        calculateProductArrayBasic(null); //Test 6
-        calculateProductArrayBasic(new long[0]); //Test 7
-        calculateProductArrayBasic(new long[]{1,3,5,7,9,0,1,3}); //Test 8
-        calculateProductArrayBasic(new long[]{1,5,6,1,20,10,21,5}); //Test 9
-        calculateProductArrayBasic(new long[]{1,1,6,7,8,4,4,1,9}); //Test 8
+        calculateProductArrayBasic(new long[]{1,2,3,4,5,6,7,8});
+        calculateProductArrayBasic(new long[]{});
+        calculateProductArrayBasic(new long[]{2});
+        calculateProductArrayBasic(new long[]{3});
+        calculateProductArrayBasic(new long[]{4,5});
+        calculateProductArrayBasic(null);
+        calculateProductArrayBasic(new long[0]);
+        calculateProductArrayBasic(new long[]{1,3,5,7,9,0,1,3});
+        calculateProductArrayBasic(new long[]{1,5,6,1,20,10,21,5});
+        calculateProductArrayBasic(new long[]{1,1,6,7,8,4,4,1,9});
+        
     }
 
 
