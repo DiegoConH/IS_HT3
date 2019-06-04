@@ -20,6 +20,8 @@ public class ProductArrayApplication {
         calculateProductArrayBasic(new long[]{1,1,6,7,8,4,4,1,9}); //Test 8
     }
 
+
+
     public static long[] calculateProductArrayBasic(long[] input){
         if(input!=null){
             if(input.length!=0){
@@ -34,38 +36,47 @@ public class ProductArrayApplication {
                         System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+Arrays.toString(input));
                         return input;
                     }
+
+
                 }else {
-                    List<Long> inputList=Arrays.stream(input).boxed().collect(Collectors.toList());
-                    List<Long> result=new ArrayList<>();
-                    List<Object> convertedList=new ArrayList<>();
+                    List<Long> entrada=Arrays.stream(input).boxed().collect(Collectors.toList());
+                    List<Long> resultado=new ArrayList<>();
+                    List<Object> Conversion=new ArrayList<>();
 
-                    for(int count=0;count<inputList.size();count++){
+
+                    for(int count=0;count<entrada.size();count++){
                         if(count>0){
-                            convertedList.addAll(inputList.subList(0,count));
+                            Conversion.addAll(entrada.subList(0,count));
                         }
-                        convertedList.addAll(Arrays.stream(input).boxed().collect(Collectors.toList()).subList(count+1,input.length));
+                        Conversion.addAll(Arrays.stream(input).boxed().collect(Collectors.toList()).subList(count+1,input.length));
 
-                        if(count!=inputList.size()-1){
-                            convertedList.add("-");
+                        if(count!=entrada.size()-1){
+                            Conversion.add("-");
                         }
+
                     }
 
-                    for (Object aLista : convertedList) {
-                        if (aLista instanceof Long) {
-                            if (result.size() > 0) {
-                                Long temp = result.get(result.size() - 1);
-                                result.set(result.size() - 1, temp * (Long) aLista);
+
+                    for (Object segundalista : Conversion) {
+                        if (segundalista instanceof Long) {
+                            if (resultado.size() > 0) {
+                                Long temp = resultado.get(resultado.size() - 1);
+                                resultado.set(resultado.size() - 1, temp * (Long) segundalista);
                             } else {
-                                result.add((Long) aLista);
+                                resultado.add((Long) segundalista);
                             }
+
                         } else {
-                            result.add(1L);
+                            resultado.add(1L);
                         }
                     }
 
-                    System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+result);
-                    return result.stream().mapToLong(l -> l).toArray();
+
+
+                    System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+resultado);
+                    return resultado.stream().mapToLong(l -> l).toArray();
                 }
+
             }else{
                 System.out.println("Probando "+Arrays.toString(input)+" - Resultado "+Arrays.toString(input));
                 return input;
